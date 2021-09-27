@@ -1,0 +1,78 @@
+.home_container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home_body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home_leftSide {
+    width: 45%;
+    height: 70vh;
+    margin-left: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+}
+
+.home_leftSide_top {
+    text-align: justify;
+}
+
+.home_title {
+    font-size: 5rem;
+    font-weight: 300;
+    margin-top: 3vh;
+    margin-bottom: 0;
+}
+
+.home_paragraph {
+    font-size: 1rem;
+    margin-top: 0;
+}
+
+.home_click {
+    font-size: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.home_leftSide_bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.home_icons {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home_subtitle {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.home_rightSide {
+    width: 45%;
+}
+
+.card {
+    transform: rotateY(0);
+    transition: transform 2s ease;
+}
+
+.card:hover {
+    transition: transform 2s ease;
+    transform: rotateY(360deg);
+}
