@@ -1,0 +1,16 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container_body {
+    width: 100%;
+    height: 90vh;
+}
+
+.container_title {
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
