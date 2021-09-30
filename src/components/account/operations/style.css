@@ -1,0 +1,97 @@
+.operation_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.operation_top {
+    width: 80%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.operation_title {
+    font-size: 4rem;
+}
+
+.operation_account_number {
+    font-weight: bold;
+}
+
+.operation_bottom {
+    width: 80%;
+    height: 60%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.operations_select {
+    width: 100%;
+    height: 12%;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    box-shadow: -2px 2px 5px 2px #C4C4C4;
+    padding: 10px;
+}
+
+.operations_div {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: -2px 2px 5px 2px #C4C4C4;
+}
+
+.operations_input_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 60%;
+    width: 40%;
+    text-align: left;
+}
+
+.button_container {
+    width: 20%;
+    height: 15%;
+}
+
+.operation_input {
+    margin-top: 2vh;
+    height: 5vh;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    padding-left: 1vw;
+    background-color: #C4C4C4;
+}
+
+.operation_button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 400ms ease;
+}
+
+.operation_button:hover {
+    opacity: .6;
+    transition: opacity 400ms ease;
+}

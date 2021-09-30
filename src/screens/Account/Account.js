@@ -3,6 +3,9 @@ import './style.css';
 import profile from '../../assets/profile.png';
 import account from '../../assets/account.png';
 import operations from '../../assets/operations.png';
+import Accounts from '../../components/account/accounts/Accounts';
+import AccountDet from '../../components/account/accountDet/AccountDet';
+import Operations from '../../components/account/operations/Operations';
 
 
 function Account() {
@@ -33,7 +36,7 @@ function Account() {
                 </div>
             </div>
             <div className="account_rightSide">
-
+                <Operations />
             </div>
         </div>
     )
