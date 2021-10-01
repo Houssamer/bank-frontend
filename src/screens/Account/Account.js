@@ -6,9 +6,15 @@ import operations from '../../assets/operations.png';
 import Accounts from '../../components/account/accounts/Accounts';
 import AccountDet from '../../components/account/accountDet/AccountDet';
 import Operations from '../../components/account/operations/Operations';
-
+import { useHistory } from 'react-router';
+import {
+    Switch,
+    Route
+  } from "react-router-dom";
 
 function Account() {
+    const history = useHistory();
+
     return (
         <div className="account_container">
             <div className="account_leftSide">
@@ -20,11 +26,11 @@ function Account() {
                     <div className="account_services">
                         <h3 className="account_text">Services</h3>
                         <div className="services">
-                            <div className="service">
+                            <div className="service" onClick={() => history.push('/account/')}>
                                 <img src={account} alt="account" />
                                 <h4>Accounts</h4>
                             </div>
-                            <div className="service">
+                            <div className="service" onClick={() => history.push('/account/operations')}>
                                 <img src={operations} alt="operations" />
                                 <h4>Operations</h4>
                             </div>
@@ -36,7 +42,17 @@ function Account() {
                 </div>
             </div>
             <div className="account_rightSide">
-                <Operations />
+                    <Switch>
+                        <Route path="/account/operations" exact>
+                            <Operations />
+                        </Route>
+                        <Route path="/account/info/:id" exact>
+                            <AccountDet />
+                        </Route>
+                        <Route path="/account/" exact>
+                            <Accounts />
+                        </Route>
+                    </Switch>
             </div>
         </div>
     )

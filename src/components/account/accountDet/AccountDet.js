@@ -3,10 +3,12 @@ import './style.css';
 import Deposit from '../../../assets/deposit.png'
 import Transfer from '../../../assets/transfer.png'
 import Withdraw from '../../../assets/withdraw.png'
+import { useParams } from 'react-router';
 
 function AccountDet() {
+    const {id} = useParams();
     const [account, setAccount] = useState({
-        id: '961715552555369759046004',
+        id: id,
         balance: 50000
     });
     const [operations, setOperations] = useState([
