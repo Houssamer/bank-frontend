@@ -62,9 +62,9 @@ function AccountDet() {
                         {operations.map((operation) => (
                             <div key={operation.id} className="operation">
                                 <img 
-                                    src={operation.name == 'Deposit'
+                                    src={operation.name === 'Deposit'
                                         ? Deposit
-                                        : operation.name == 'Transfer'
+                                        : operation.name === 'Transfer'
                                         ? Transfer : Withdraw} 
                                     alt={operation.name} 
                                     className="operation_icon"

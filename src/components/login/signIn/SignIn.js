@@ -13,11 +13,12 @@ function SignIn() {
           Email:{' '}
         </label>
         <input
-          type="text"
+          type="email"
           id="email"
           name="username"
           placeholder="Email"
           className="login_input"
+          required
         />
         <label htmlFor="password" className="label">
           Password:{' '}
@@ -28,6 +29,7 @@ function SignIn() {
           name="password"
           placeholder="Password"
           className="login_input"
+          required
         />
         <input type="submit" value="Login" className="login_button" />
       </form>
