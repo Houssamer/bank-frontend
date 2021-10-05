@@ -1,6 +1,7 @@
 import axios from '../../../axios/axios';
 import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router';
+import ReactLoading from 'react-loading';
 import './style.css';
 
 function SignUp() {
@@ -10,9 +11,10 @@ function SignUp() {
   const lastNameRef = useRef();
   const passwordRef = useRef();
   const rePasswordRef = useRef();
+  const [loading, setLoading] = useState(false);
 
   function signUp(event) {
-
+    setLoading(true);
     event.preventDefault();
 
     const email = emailRef.current.value;
@@ -38,13 +40,23 @@ function SignUp() {
       }
 
       axios.post("/api/client/add", body, config)
-          .then(() => history.push('/email/confirmation'))
+          .then(() => {
+            setLoading(false);
+            history.push('/email/confirmation')
+          })
           .catch((err) => console.log(err));
     }
   }
 
   return (
     <div className="login_signUp">
+        {
+      loading && (
+        <div className={`${loading}` ? "loading" : "hiddenLoading"}>
+          <ReactLoading type="spinningBubbles" color="black" height="8%" width="8%" />
+        </div>
+      )
+    }
       <h2 className="signUp_title">Sign Up</h2>
       <form className="form_signUp">
         <label htmlFor="email">Email: </label>
