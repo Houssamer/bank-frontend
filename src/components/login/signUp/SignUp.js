@@ -44,9 +44,11 @@ function SignUp() {
             setLoading(false);
             history.push('/email/confirmation')
           })
-          .catch((err) => console.log(err));
-    }
-  }
+          .catch((err) => {
+            console.log(err);
+            setLoading(false);
+          })
+  }};
 
   return (
     <div className="login_signUp">

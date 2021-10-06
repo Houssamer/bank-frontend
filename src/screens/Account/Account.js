@@ -11,9 +11,20 @@ import {
     Switch,
     Route
   } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { Logout } from '../../features/userSlice';
+import axios from '../../axios/axios';
 
 function Account() {
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    function signOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('email');
+        dispatch(Logout());
+        history.push('/');
+    }
 
     return (
         <div className="account_container">
@@ -37,7 +48,7 @@ function Account() {
                         </div>
                     </div>
                     <div className="account_button">
-                        <button className="button">Sign Out</button>
+                        <button className="button" onClick={signOut}>Sign Out</button>
                     </div>
                 </div>
             </div>

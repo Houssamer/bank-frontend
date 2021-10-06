@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import { selectUser } from '../../../features/userSlice';
 import AddAccount from '../add/AddAccount';
+
 import './style.css';
 
 const customStyles = {
@@ -20,16 +23,16 @@ const customStyles = {
   };
 
 function Accounts() {
+  const user = useSelector(selectUser);
   const history = useHistory();
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [accounts, setAccounts] = useState([
-    {
-      id: '961715552555369759046004',
-    },
-    {
-      id: '761011265779452059593075',
-    },
-  ]);
+  const [accounts, setAccounts] = useState([]);
+  
+  useEffect(() => {
+    setAccounts(user.accounts)
+  }, []);
+
+
   return (
     <div className="accounts_container">
       <h1 className="accounts_title">Accounts</h1>
@@ -41,9 +44,9 @@ function Accounts() {
           <div
             className="account_div"
             key={account.id}
-            onClick={() => history.push('/account/info/' + account.id)}
+            onClick={() => history.push('/account/info/' + account.number)}
           >
-            <p className="account_number">account number: {account.id}</p>
+            <p className="account_number">account number: {account.number}</p>
           </div>
         ))}
         <ReactModal
