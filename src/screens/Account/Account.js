@@ -13,7 +13,7 @@ import {
   } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { Logout } from '../../features/userSlice';
-import axios from '../../axios/axios';
+
 
 function Account() {
     const history = useHistory();

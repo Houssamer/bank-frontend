@@ -28,19 +28,39 @@ function AccountDet() {
     axios
       .post('/api/account', body, config)
       .then((res) => {
-        console.log(res.data);
         setAccount({
           number: res.data.number,
           balance: res.data.balance,
           createdAt: res.data.createdAt,
         });
-        setOperations(operations);
+        setOperations(res.data.operations);
         setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  function sqlToJsDate(sqlDate){
+  
+    const Arr1 = sqlDate.split("-");
+    const year = Arr1[0];
+    const month = Arr1[1];
+
+    const Arr2 = Arr1[2].split("T");
+    const day = Arr2[0];
+
+    const Arr3 = Arr2[1].split(":");
+    const hour = Arr3[0];
+    const minutes = Arr3[1];
+
+    const Arr4 = Arr3[2].split(".");
+    const seconds = Arr4[0];
+    
+    const date = year+"-"+month+"-"+day+" "+hour+":"+minutes+":"+seconds;
+    return date;
+}
+
   return (
     <div className="accountDet_container">
       {loading && (
@@ -87,20 +107,20 @@ function AccountDet() {
               <div key={operation.id} className="operation">
                 <img
                   src={
-                    operation.name === 'Deposit'
+                    operation.type === 'Deposit'
                       ? Deposit
-                      : operation.name === 'Transfer'
+                      : operation.type === 'Transfer'
                       ? Transfer
                       : Withdraw
                   }
-                  alt={operation.name}
+                  alt={operation.type}
                   className="operation_icon"
                 />
                 <div className="operation_info">
-                  <h4>{operation.name}</h4>
+                  <h4>{operation.type}</h4>
                   <p>{operation.amount}$</p>
                 </div>
-                <p className="operation_date">{operation.date}</p>
+                <p className="operation_date">{sqlToJsDate(operation.date)}</p>
               </div>
             ))}
           </div>

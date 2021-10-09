@@ -22,9 +22,12 @@ function SignUp() {
     const lastName = lastNameRef.current.value;
     const password = passwordRef.current.value;
     const rePassword = rePasswordRef.current.value;
-
-    if (password !== rePassword) {
+    if (!email || !firstName || !lastName || !password || !rePassword) {
+      alert('Please fill all fields');
+      setLoading(false);
+    } else if (password !== rePassword) {
       alert('Your passwords dont match');
+      setLoading(false);
     } else {
       const body = JSON.stringify({
         firstName,

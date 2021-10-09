@@ -12,7 +12,8 @@ import axios from './axios/axios';
 import { useDispatch } from 'react-redux';
 import { Login, Logout } from './features/userSlice';
 
-// TODO: git commit and push the changes (account details)
+
+
 
 function App() {
   const user = useSelector(selectUser);
